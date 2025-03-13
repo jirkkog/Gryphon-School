@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Tests</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Выберите тест</h1>
+    <input type="text" id="username" placeholder="Введите имя">
+    <input type="text" id="group" placeholder="Введите группу">
+    <button onclick="startTest(1)">Начать Reading Test</button>
+    <button onclick="startTest(2)">Начать Listening Test</button>
+
+    <script>
+        function startTest(testId) {
+            const username = document.getElementById('username').value;
+            const group = document.getElementById('group').value;
+            if (!username || !group) {
+                alert("Введите имя и группу!");
+                return;
+            }
+            localStorage.setItem('username', username);
+            localStorage.setItem('group', group);
+            window.location.href = `test.html?id=${testId}`;
+        }
+    </script>
+</body>
+</html>
